@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+i {
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 132, 255);
+    padding: 25px 60px;
+
+}
+
+ .name {
+    display: flex;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.cart {
+    position: relative;
+    background-color: white;
+    font-size: 40px;
+    border-radius: 3px;
+}
+
+.cartAmount {
+    position: absolute;
+    top: -20px;
+    right: -5px;
+    background-color: red;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+/* container items  below */
+
+.shop {
+    display: flex;
+    justify-content: center;
+    min-width: 200;
+    min-height: 300px;
+    margin: 10px 0 0 20px;
+    gap: 30px;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        flex-wrap: wrap;
+    }
+}
+
+.items {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.item1 {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    min-height: 300px;
+}
+
+.item-name {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.desc {
+    margin: 20px 0;
+}
+
+
+.price-quan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-weight: bold;
+    height: 60px;
+}
+
+.item-price {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 60px;
+}
+
+.buttons {
+    display: flex;
+    height: 60px;
+    align-items: center;
+}
+
+.bi-dash-lg {
+    color: red;
+}
+
+.bi-plus-lg {
+    color: green;
+}
+
+.quantity {
+    padding: 0 10px;
+}
+
+/* styles for cart page */
+
+.text-center {
+    text-align: center;
+    margin-bottom: 20px;
+}
