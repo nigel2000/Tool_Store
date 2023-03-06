@@ -39,6 +39,7 @@ a {
     border-radius: 3px;
 }
 
+
 .cartAmount {
     position: absolute;
     top: -20px;
@@ -81,6 +82,10 @@ a {
     margin: 20px 0;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+img {
+    padding: 10px 10px;
 }
 
 .desc {
@@ -128,4 +133,40 @@ a {
 .text-center {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.HomeBtn {
+ background-color: black;
+ color: white;
+ border: none;   
+ padding: 6px;
+ border-radius: 3px;
+ cursor: pointer;
+ margin-top: 10px;
+}
+
+.bi-x-lg {
+    color: red;
+    font-weight: bold;
+}
+
+/* styles for shopping cart */
+
+.shopping-cart {
+    display: grid;
+    grid-template-columns: repeat(1, 320px);
+    justify-content: center;
+    gap: 15px;
+}
+
+/* styles for cart items */
+
+.cart-item {
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+
+.title-price-x {
+    display: flex;
 }
