@@ -19,20 +19,25 @@ let generateCartItems = () => {
             let search = shopItemsData.find((y) => y.id === id) || []
             return `
             <div class="cart-item">
-            <img width="100" src=${search.img} alt=" />
-            <div class="details">
-                <div class="title-price-x">
-                   <h4>
-                    <p>${search.name}</p>
-                    <p>£${search.price}</p>
-                   </h4> 
-                   <i class="bi bi-x-lg"></i>
+                <div class="image">
+                <img width="100" src=${search.img} alt=" />
                 </div>
 
-                <div class="cart-buttons"></div>
+                <div class="details">
+                        <div class="title-price-x">
+                            <div class="title-price">
+                                <p>${search.name}</p>
+                                <p class="cart-item-price">£${search.price}</p>
+                                <i class="bi bi-x-lg"></i>
+                            </div>
 
-                <h3></h3>
-            </div>
+                        <div class="buttons">
+                                <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
+                                <div id=${id} class="quantity">${item}</div>
+                                <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
+                        </div>
+                        <div class="total">£${item * search.price}</div>
+                </div>
             </div>
             `
         }).join(""))
@@ -49,3 +54,51 @@ let generateCartItems = () => {
 }
 
 generateCartItems()
+
+let increment = (id) => {
+    let selectedItem = id
+    let search = basket.find((x) => x.id === selectedItem.id)
+
+    if (search === undefined) {
+        basket.push({
+            id: selectedItem.id,
+            item: 1,
+        })
+    }
+    else {
+        search.item += 1
+    }
+   
+    generateCartItems()
+    // this is the amount you have selected, runs when plus or minus is clicked
+    update(selectedItem.id)
+    localStorage.setItem("data", JSON.stringify(basket))
+}
+
+
+let decrement = (id) => {
+    let selectedItem = id
+    let search = basket.find((x) => x.id === selectedItem.id)
+
+    if(search === undefined) return
+    else if (search.item === 0) return
+    else {
+        search.item -= 1
+    }
+    
+    update(selectedItem.id)
+    // line below will remove items out of basket which are zero
+    basket = basket.filter((x) => x.item !== 0)
+    generateCartItems()
+   // this is the amount you have selected, runs when plus or minus is clicked
+   
+    localStorage.setItem("data", JSON.stringify(basket))
+}
+
+
+let update = (id) => {
+    let search = basket.find((x) => x.id === id)
+    console.log(search.item)
+    document.getElementById(id).innerHTML = search.item
+    calculation()
+}
