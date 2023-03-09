@@ -154,9 +154,17 @@ img {
 
 .shopping-cart {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: auto;
-    min-height: 300px;
+    width: 320px;
+    min-height: 150px;
+    margin: auto;
+    gap: 10px;
+}
+
+.container {
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 /* styles for cart items */
@@ -166,7 +174,7 @@ img {
     flex-direction: row;
     width: 320px;
     height: 120px;
-    border: 2px solid black;
+    /*  */border: 2px solid black;
 }
 
 .image {
@@ -201,4 +209,18 @@ img {
     align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.checkout {
+    width: 70px;
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+}
+
+.removeAll{
+    width: 70px;
+    background-color: red;
+    color: white;
+    border-radius: 4px;
 }
