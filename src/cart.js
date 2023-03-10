@@ -17,18 +17,19 @@ let generateCartItems = () => {
             let {id, item} = x
             // x is in the basket y is in the data.js
             let search = shopItemsData.find((y) => y.id === id) || []
+            let {img, name, price} = search
             return `
             <div class="container"
             <div class="cart-item">
                 <div class="image">
-                <img width="100" src=${search.img} alt=" />
+                <img width="100" src=${img} alt=" />
                 </div>
 
                 <div class="details">
                         <div class="title-price-x">
                             <div class="title-price">
-                                <p>${search.name}</p>
-                                <p class="cart-item-price">£${search.price}</p>
+                                <p>${name}</p>
+                                <p class="cart-item-price">£${price}</p>
                                 <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
                             </div>
 
@@ -37,7 +38,7 @@ let generateCartItems = () => {
                                 <div id=${id} class="quantity">${item}</div>
                                 <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                         </div>
-                        <div class="total">£${item * search.price}</div>
+                        <div class="total">£${item * price}</div>
                 </div>
             </div>
             </div>
@@ -113,6 +114,7 @@ let removeItem = (id) => {
     basket = basket.filter((x) => x.id !== selectedItem.id)
     generateCartItems()
     totalAmount()
+    calculation()
     localStorage.setItem("data", JSON.stringify(basket)) 
 
 }
@@ -120,6 +122,7 @@ let removeItem = (id) => {
 let clearCart = () => {
     basket = []
     generateCartItems()
+    calculation()
     localStorage.setItem("data", JSON.stringify(basket))
 }
 
