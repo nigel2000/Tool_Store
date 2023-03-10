@@ -54,6 +54,7 @@ a {
 
 .shop {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     min-width: 200;
     min-height: 300px;
@@ -76,11 +77,12 @@ a {
     display: flex;
     flex-direction: column;
     min-width: 200px;
-    min-height: 300px;
+    min-height: 180px;
+    padding: 0 10px;
 }
 
 .item-name {
-    margin: 20px 0;
+    margin: 10px 0;
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -90,7 +92,7 @@ img {
 }
 
 .desc {
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 
